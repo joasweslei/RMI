@@ -21,7 +21,7 @@ public class ServiceMain {
             registry.bind(nome, objServiceInterface);
 
             //mostra as infos do servidor
-            System.out.println("Respondendo: Service 01, Port: " + pPort);
+            System.out.println("Respondendo: Service_01, Port: " + pPort);
 
         } catch (RemoteException | AlreadyBoundException e) {
            System.out.println( e.getMessage() );

@@ -10,20 +10,34 @@ public class ClienteMain {
 
         try {
             int port = 2016;
+            String ip = "localhost";
             // Registrar a conexao com o servidor
-            Registry registry = LocateRegistry.getRegistry("localhost", port);
+            Registry registry = LocateRegistry.getRegistry(ip, port);
 
             // A partir da conexao, obter o objeto stub para executar os metodos remotos
             ServiceInterface stub = (ServiceInterface) registry.lookup("Service_01");
             // stub conhece a lista de metodos implementado no servidor
 
             // invocao do metodo remoto
-            String response = stub.sayHello("Joas ");
             float resultado = stub.soma(200, 3);
-            System.out.println("response: " + response);
-            System.out.println("response: " + resultado);
+            System.out.println("resultado: " + resultado);
+
             resultado = stub.subtracao(200, 3);
+            System.out.println("resultado: " + resultado);
+            
+            resultado = stub.multiplicacao(200, 3);
             System.out.println("response: " + resultado);
+            
+            float mat[][] = new float[2][2];
+            
+            
+            mat[0][0] = 2;
+            mat[0][1] = 3;
+            mat[1][0] = 4;
+            mat[1][1] = 5;
+            float[][] matriz = stub.multMatrix(mat, mat);
+            
+            System.out.println("Matriz[0][0]: " + matriz[0][0]);
 
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());

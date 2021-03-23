@@ -10,5 +10,9 @@ public interface ServiceInterface extends Remote {
     float soma(float a, float b) throws RemoteException;
     
     float subtracao( float a, float b) throws RemoteException;
+    
+    float multiplicacao( float a, float b) throws RemoteException;
+    
+    float[][] multMatrix( float a[][], float b[][]) throws RemoteException;
 
 }
