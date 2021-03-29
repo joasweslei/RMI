@@ -35,22 +35,17 @@ public class ServiceImpl extends UnicastRemoteObject implements
             return a * b;
         }
         
-        public float[][] multMatrix( float a[][], float b[][]) throws RemoteException{
+        public float media( float list[] ) throws  RemoteException{
+            int size = list.length;
+            if( size == 0 ){
+                return 0;
+            }
             float soma = 0;
-            float resultMatriz [][]= new float[2][2];
-            soma = a[0][0] * b[0][0] + a[0][1]* b[1][0]; 
-            resultMatriz[0][0] = soma;
-            
-            soma = a[0][0] * b[0][1] + a[0][1] * b[1][1];
-            resultMatriz[0][1] = soma;
-            
-            soma = a[1][0] * b[0][0] + a[1][1] * b[1][1];
-            resultMatriz[1][0] = soma;
-            
-            soma = a[1][0] * b[0][1] + a[1][1] * b[1][1];
-            resultMatriz[1][1] = soma;
-            
-            return resultMatriz;
+            float media = 0;
+            for (int i = 0; i < size; i++) {
+                soma = soma + list[i];
+            }
+            media = soma / size; 
+            return media;
         }
-
 }

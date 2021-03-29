@@ -20,24 +20,19 @@ public class ClienteMain {
 
             // invocao do metodo remoto
             float resultado = stub.soma(200, 3);
-            System.out.println("resultado: " + resultado);
+            System.out.println("Soma: " + resultado);
 
             resultado = stub.subtracao(200, 3);
-            System.out.println("resultado: " + resultado);
+            System.out.println("Subtração: " + resultado);
             
             resultado = stub.multiplicacao(200, 3);
-            System.out.println("response: " + resultado);
+            System.out.println("Multiplicação: " + resultado);
             
-            float mat[][] = new float[2][2];
+            float list[] = {2, 4};
             
+            float media = stub.media(list);
             
-            mat[0][0] = 2;
-            mat[0][1] = 3;
-            mat[1][0] = 4;
-            mat[1][1] = 5;
-            float[][] matriz = stub.multMatrix(mat, mat);
-            
-            System.out.println("Matriz[0][0]: " + matriz[0][0]);
+            System.out.println("Média: " + media);
 
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());
